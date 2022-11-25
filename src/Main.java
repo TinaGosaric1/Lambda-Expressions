@@ -17,7 +17,7 @@ public class Main {
 
         // with lambda expression
 
-        new Thread(()-> {
+        new Thread(() -> {
             System.out.println("Printing from the Runnable2");
             System.out.println("One more statement");
         }).start();
@@ -42,20 +42,19 @@ public class Main {
 //            }
 //        });
 
-
         // with lambda expression
 
         Collections.sort(employees, (employee1, employee2) -> employee1.getName().compareTo(employee2.getName()));
 
-        for(Employee employee : employees) {
+        for (Employee employee : employees) {
             System.out.println(employee.getName());
         }
     }
 }
 
 class Employee {
-   private String name;
-   private int age;
+    private String name;
+    private int age;
 
     public Employee(String name, int age) {
         this.name = name;
