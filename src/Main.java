@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class Main {
@@ -12,8 +13,6 @@ public class Main {
         Employee stefan = new Employee("Stefan Salvatore", 34);
         Employee damon = new Employee("Damon Salvatore", 37);
         Employee elena = new Employee("Elena Gilbert", 18);
-
-
 
         List<Employee> employees = new ArrayList<>();
         employees.add(eli);
@@ -32,6 +31,13 @@ public class Main {
                 return employee.getAge() < 25;
             }
         });
+
+        IntPredicate greaterThan15 = i -> i>15;
+        IntPredicate lessThan100 = i -> i<100;
+
+        System.out.println();
+        System.out.println(greaterThan15.test(20));
+        System.out.println(greaterThan15.and(lessThan100).test(16)); // greater than 15 and less than 100
     }
 
     private static void printEmployeesByAge(List<Employee> employees, String ageText, Predicate<Employee> ageCondition) {
